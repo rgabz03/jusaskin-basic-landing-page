@@ -15,7 +15,8 @@
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->1
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-RR5D22C5MS"></script>
         <script>
         window.dataLayer = window.dataLayer || [];
@@ -64,7 +65,7 @@
                     <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="" method="POST">
                         <!-- Email address input-->
                         <div class="row input-group-newsletter">
-                            <div class="col"><input class="form-control" id="email" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email"/></div>
+                            <div class="col"><input class="form-control" id="email" name="email" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" required/></div>
                             <div class="col-auto"><button class="btn btn-notify-me" id="submitButton" type="submit">Notify Me!</button></div>
                         </div>
                         <div class="invalid-feedback mt-2" data-sb-feedback="email:required">An email is required.</div>
@@ -259,17 +260,10 @@
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
         <script>
-            $('.carousel').carousel();
-
-            $(document).ready(function(){
-                $("#contactForm").submit(function(e){
-                    alert("Here");
-                    e.preventDefault();
-                });
-            });
-            
+            // $('.carousel').carousel();
+            $(document).ready(function(){$("#contactForm").submit(function(t){var e=document.getElementById("email").value;$.ajax({type:"POST",dataType:"json",url:"http://api.jusaskin.com/api/test/subscribe",data:{email:e},success:function(t){console.log(t)}}),t.preventDefault()})});
         </script>
     </body>
 </html>
