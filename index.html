@@ -262,8 +262,7 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
         <script>
-            // $('.carousel').carousel();
-            $(document).ready(function(){$("#contactForm").submit(function(t){var e=document.getElementById("email").value;$.ajax({type:"POST",dataType:"json",url:"http://api.jusaskin.com/api/test/subscribe",data:{email:e},success:function(t){console.log(t)}}),t.preventDefault()})});
+            $(document).ready(function(){$("#contactForm").submit(function(e){var t=document.getElementById("email").value;$.ajax({type:"POST",dataType:"json",url:"http://api.jusaskin.com/api/test/subscribe",data:{email:t},success:function(e){$("#submitSuccessMessage").removeClass()}}),e.preventDefault()})});
         </script>
     </body>
 </html>
